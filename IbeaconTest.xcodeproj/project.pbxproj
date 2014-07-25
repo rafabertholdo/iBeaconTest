@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A137F181981EA5900E38E78 /* TrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A137F171981EA5900E38E78 /* TrackerViewController.m */; };
 		4AE581BE1981DFD9005A7D39 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AE581BD1981DFD9005A7D39 /* Foundation.framework */; };
 		4AE581C01981DFD9005A7D39 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AE581BF1981DFD9005A7D39 /* CoreGraphics.framework */; };
 		4AE581C21981DFD9005A7D39 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AE581C11981DFD9005A7D39 /* UIKit.framework */; };
@@ -22,6 +23,9 @@
 		4AE581E21981DFD9005A7D39 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AE581C11981DFD9005A7D39 /* UIKit.framework */; };
 		4AE581EA1981DFD9005A7D39 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4AE581E81981DFD9005A7D39 /* InfoPlist.strings */; };
 		4AE581EC1981DFD9005A7D39 /* IbeaconTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE581EB1981DFD9005A7D39 /* IbeaconTestTests.m */; };
+		4AE581F71981E275005A7D39 /* TransmitterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE581F61981E275005A7D39 /* TransmitterViewController.m */; };
+		4AE581F91981E32F005A7D39 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AE581F81981E32F005A7D39 /* CoreBluetooth.framework */; };
+		4AE581FB1981E335005A7D39 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AE581FA1981E335005A7D39 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A137F161981EA5900E38E78 /* TrackerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackerViewController.h; sourceTree = "<group>"; };
+		4A137F171981EA5900E38E78 /* TrackerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackerViewController.m; sourceTree = "<group>"; };
 		4AE581BA1981DFD9005A7D39 /* IbeaconTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IbeaconTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AE581BD1981DFD9005A7D39 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4AE581BF1981DFD9005A7D39 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -55,6 +61,10 @@
 		4AE581E71981DFD9005A7D39 /* IbeaconTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IbeaconTestTests-Info.plist"; sourceTree = "<group>"; };
 		4AE581E91981DFD9005A7D39 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4AE581EB1981DFD9005A7D39 /* IbeaconTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IbeaconTestTests.m; sourceTree = "<group>"; };
+		4AE581F51981E275005A7D39 /* TransmitterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransmitterViewController.h; sourceTree = "<group>"; };
+		4AE581F61981E275005A7D39 /* TransmitterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransmitterViewController.m; sourceTree = "<group>"; };
+		4AE581F81981E32F005A7D39 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		4AE581FA1981E335005A7D39 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +72,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AE581FB1981E335005A7D39 /* CoreLocation.framework in Frameworks */,
+				4AE581F91981E32F005A7D39 /* CoreBluetooth.framework in Frameworks */,
 				4AE581C01981DFD9005A7D39 /* CoreGraphics.framework in Frameworks */,
 				4AE581C21981DFD9005A7D39 /* UIKit.framework in Frameworks */,
 				4AE581BE1981DFD9005A7D39 /* Foundation.framework in Frameworks */,
@@ -103,6 +115,8 @@
 		4AE581BC1981DFD9005A7D39 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4AE581FA1981E335005A7D39 /* CoreLocation.framework */,
+				4AE581F81981E32F005A7D39 /* CoreBluetooth.framework */,
 				4AE581BD1981DFD9005A7D39 /* Foundation.framework */,
 				4AE581BF1981DFD9005A7D39 /* CoreGraphics.framework */,
 				4AE581C11981DFD9005A7D39 /* UIKit.framework */,
@@ -117,11 +131,15 @@
 				4AE581CC1981DFD9005A7D39 /* AppDelegate.h */,
 				4AE581CD1981DFD9005A7D39 /* AppDelegate.m */,
 				4AE581CF1981DFD9005A7D39 /* Main_iPhone.storyboard */,
+				4AE581F51981E275005A7D39 /* TransmitterViewController.h */,
+				4AE581F61981E275005A7D39 /* TransmitterViewController.m */,
 				4AE581D21981DFD9005A7D39 /* Main_iPad.storyboard */,
 				4AE581D51981DFD9005A7D39 /* ViewController.h */,
 				4AE581D61981DFD9005A7D39 /* ViewController.m */,
 				4AE581D81981DFD9005A7D39 /* Images.xcassets */,
 				4AE581C41981DFD9005A7D39 /* Supporting Files */,
+				4A137F161981EA5900E38E78 /* TrackerViewController.h */,
+				4A137F171981EA5900E38E78 /* TrackerViewController.m */,
 			);
 			path = IbeaconTest;
 			sourceTree = "<group>";
@@ -253,8 +271,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A137F181981EA5900E38E78 /* TrackerViewController.m in Sources */,
 				4AE581D71981DFD9005A7D39 /* ViewController.m in Sources */,
 				4AE581CE1981DFD9005A7D39 /* AppDelegate.m in Sources */,
+				4AE581F71981E275005A7D39 /* TransmitterViewController.m in Sources */,
 				4AE581CA1981DFD9005A7D39 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -470,6 +490,7 @@
 				4AE581F11981DFD9005A7D39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4AE581F21981DFD9005A7D39 /* Build configuration list for PBXNativeTarget "IbeaconTestTests" */ = {
 			isa = XCConfigurationList;
@@ -478,6 +499,7 @@
 				4AE581F41981DFD9005A7D39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

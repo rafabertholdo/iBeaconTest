@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
+#import <CoreBluetooth/CoreBluetooth.h>
 
-@interface TransmitterViewController : UIViewController
+@interface TransmitterViewController : UIViewController <CBPeripheralManagerDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *lblUUID;
+@property (weak, nonatomic) IBOutlet UILabel *lblMajor;
+@property (weak, nonatomic) IBOutlet UILabel *lblMinor;
+@property (weak, nonatomic) IBOutlet UILabel *lblIdentity;
 
 @end

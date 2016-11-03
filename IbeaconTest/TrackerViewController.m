@@ -30,7 +30,7 @@
     // Do any additional setup after loading the view.
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
-    [self initRegion];
+
 }
 
 
@@ -40,6 +40,25 @@
     self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:guid identifier:@"com.bertholdo.beacon"];
     [self.locationManager startMonitoringForRegion:self.beaconRegion];
 
+}
+
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
+{
+    if (![CLLocationManager locationServicesEnabled]) {
+        NSLog(@"Couldn't turn on ranging: Location services are not enabled.");
+    }
+    
+    if ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorized) {
+        NSLog(@"Couldn't turn on monitoring: Location services not authorised.");
+        [self.locationManager requestWhenInUseAuthorization];
+    }else{
+        [self initRegion];
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error
+{
+    NSLog(@"monitoringDidFailForRegion - error: %@", [error localizedDescription]);
 }
 
 - (void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region {
@@ -61,24 +80,26 @@
 
 -(void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
 {
-    CLBeacon *beacon = [[CLBeacon alloc] init];
-    beacon = [beacons lastObject];
-    
-    self.beaconFoundLabel.text = @"Yes";
-    self.proximityUUIDLabel.text = beacon.proximityUUID.UUIDString;
-    self.majorLabel.text = [NSString stringWithFormat:@"%@", beacon.major];
-    self.minorLabel.text = [NSString stringWithFormat:@"%@", beacon.minor];
-    self.accuracyLabel.text = [NSString stringWithFormat:@"%f", beacon.accuracy];
-    if (beacon.proximity == CLProximityUnknown) {
-        self.distanceLabel.text = @"Unknown Proximity";
-    } else if (beacon.proximity == CLProximityImmediate) {
-        self.distanceLabel.text = @"Immediate";
-    } else if (beacon.proximity == CLProximityNear) {
-        self.distanceLabel.text = @"Near";
-    } else if (beacon.proximity == CLProximityFar) {
-        self.distanceLabel.text = @"Far";
+    if([beacons count])
+    {
+        CLBeacon *beacon = [beacons firstObject];
+        
+        self.beaconFoundLabel.text = @"Yes";
+        self.proximityUUIDLabel.text = beacon.proximityUUID.UUIDString;
+        self.majorLabel.text = [NSString stringWithFormat:@"%@", beacon.major];
+        self.minorLabel.text = [NSString stringWithFormat:@"%@", beacon.minor];
+        self.accuracyLabel.text = [NSString stringWithFormat:@"%f", beacon.accuracy];
+        if (beacon.proximity == CLProximityUnknown) {
+            self.distanceLabel.text = @"Unknown Proximity";
+        } else if (beacon.proximity == CLProximityImmediate) {
+            self.distanceLabel.text = @"Immediate";
+        } else if (beacon.proximity == CLProximityNear) {
+            self.distanceLabel.text = @"Near";
+        } else if (beacon.proximity == CLProximityFar) {
+            self.distanceLabel.text = @"Far";
+        }
+        self.rssiLabel.text = [NSString stringWithFormat:@"%i", beacon.rssi];
     }
-    self.rssiLabel.text = [NSString stringWithFormat:@"%i", beacon.rssi];
 }
 
 - (void)didReceiveMemoryWarning
@@ -86,16 +107,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

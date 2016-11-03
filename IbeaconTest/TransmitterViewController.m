@@ -13,6 +13,7 @@
 @property (strong, nonatomic) CLBeaconRegion *beaconRegion;
 @property (strong, nonatomic) NSDictionary *beaconPeripheralData;
 @property (strong, nonatomic) CBPeripheralManager *peripheralManager;
+@property (weak, nonatomic) IBOutlet UILabel *lblTrasnmiting;
 @end
 
 @implementation TransmitterViewController
@@ -32,9 +33,6 @@
                                                                 major:1
                                                                 minor:1
                                                            identifier:@"com.bertholdo.beacon"];
-}
-
-- (IBAction)transmitBeacon:(UIButton *)sender {
     self.beaconPeripheralData = [self.beaconRegion peripheralDataWithMeasuredPower:nil];
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self
                                                                      queue:nil
@@ -43,11 +41,11 @@
 
 -(void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral {
     if (peripheral.state == CBPeripheralManagerStatePoweredOn) {
-        NSLog(@"Powered On");
         [self.peripheralManager startAdvertising:self.beaconPeripheralData];
+        _lblTrasnmiting.text = @"Transmiting";
     } else if (peripheral.state == CBPeripheralManagerStatePoweredOff) {
-        NSLog(@"Powered Off");
         [self.peripheralManager stopAdvertising];
+        _lblTrasnmiting.text = @"Not Trasnmitting";
     }
 }
 

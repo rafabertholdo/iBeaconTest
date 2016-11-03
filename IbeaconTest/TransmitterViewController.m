@@ -33,6 +33,7 @@
                                                                 major:1
                                                                 minor:1
                                                            identifier:@"com.bertholdo.beacon"];
+    
     self.beaconPeripheralData = [self.beaconRegion peripheralDataWithMeasuredPower:nil];
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self
                                                                      queue:nil

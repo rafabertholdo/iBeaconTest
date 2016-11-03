@@ -29,8 +29,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     self.locationManager.delegate = self;
-
 }
 
 
@@ -48,9 +48,14 @@
         NSLog(@"Couldn't turn on ranging: Location services are not enabled.");
     }
     
-    if ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorized) {
+    if (!([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedAlways ||
+        [CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorized ||
+        [CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse)) {
         NSLog(@"Couldn't turn on monitoring: Location services not authorised.");
-        [self.locationManager requestWhenInUseAuthorization];
+        
+
+        
+        [self.locationManager requestAlwaysAuthorization];
     }else{
         [self initRegion];
     }

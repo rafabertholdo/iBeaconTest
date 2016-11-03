@@ -20,6 +20,8 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>location use</string>
     <key>NSLocationAlwaysUsageDescription</key>
     <string>$(PRODUCT_NAME) location use.</string>
     <key>NSBluetoothPeripheralUsageDescription</key>
